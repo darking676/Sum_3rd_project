@@ -1,8 +1,22 @@
 package com.bit.shop01.model.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class MemVo {
 
-	private String memId, memName, memPassword, email, address, hp;
+	@NotEmpty(message="아이디를 입력하세요")
+	private String memId;
+	
+	private String memName;
+	
+	@NotEmpty(message="비밀번호를 입력하세요")
+	private String memPassword;
+	
+	private String email;
+	
+	private String address;
+	
+	private String hp;
 
 	public MemVo() {
 	}

@@ -35,41 +35,51 @@ public class CartController {
 //	CartServiceImpl service = new CartServiceImpl();
 	CartDaoImpl dao = new CartDaoImpl();
 	
-//	//��ٱ��� ���
 //	@RequestMapping(value = "/cart2/", method = RequestMethod.GET)
 //	public String cart2() {
 //		return "/info2/cart2";
 //	}
 	
-	//��ٱ��Ͽ� ��ǰ �߰�
 	@RequestMapping(value="/cart2/insert")
 	public String insert(@ModelAttribute CartVo cartVo, HttpSession session, HttpServletRequest request) {
 		MemVo loginMember = (MemVo)session.getAttribute("check");
 		String memId = loginMember.getMemId();
 		cartVo.setMemId(memId);
-		String productNum = request.getParameter("productNum");
-		String quantity = request.getParameter("quantity");
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		
+		String colors = request.getParameter("colors");
+		System.out.println("colors : "+colors);
+		
+		String sizename = request.getParameter("sizename");
+		System.out.println("sizename : "+sizename);
+		
+		cartVo.setProductNum(productNum);
+		cartVo.setQuantity(quantity);
+		cartVo.setColors(colors);
+		cartVo.setSizename(sizename);
 		
 		System.out.println("productNum / quantity : " + productNum + " / " + quantity);
 		
-		//��ǰ�� �ִ��� �˻�
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("productNum", cartVo.getProductNum());
 		params.put("memId", memId);
+		params.put("quantity",quantity);
+		params.put("colors", colors);
+		params.put("sizename", sizename);
 		int count = service.countCart(params);
 //		int count = service.countCart(cartVo.getProductNum(), memId);
+
 		
 		if(count == 0) {
 			service.insert(cartVo);
 		} else {
 			service.editCart(cartVo);
 		}
-
 		
 		return "redirect:/cart2/";
 	}
 	
-	//��ٱ��� ���
 	@RequestMapping(value="/cart2/")
 	public ModelAndView list(HttpSession session, ModelAndView mav, HttpServletRequest request) {
 		
@@ -89,31 +99,28 @@ public class CartController {
 		
 		System.out.println("sum price : " + sumPrice);
 		
-		//��۷�(10���� �̻��̸� ���� �ƴϸ� 2500��)
 		int fee = sumPrice >= 100000 ? 0 : 2500;
 		
 		System.out.println("fee : " + fee);
 		
-		map.put("list", list);				//��ٱ��� ������ map�� ����
-		map.put("count", list.size());		//��ٱ��� ��ǰ Ȯ��
-		map.put("sumPrice", sumPrice);		//��ٱ��� ��ü �ݾ� �հ�
-		map.put("fee", fee);				//��۷�
-		map.put("AllSum", sumPrice + fee);	//�ֹ��ݾ� �հ�
+		map.put("list", list);				
+		map.put("count", list.size());		
+		map.put("sumPrice", sumPrice);		
+		map.put("fee", fee);				
+		map.put("AllSum", sumPrice + fee);	
 		
-		mav.setViewName("info2/cart2");		//�� ����
-		mav.addObject("map", map);			//���� ����
+		mav.setViewName("info2/cart2");		
+		mav.addObject("map", map);			
 		
 		return mav;
 	}
 	
-	//��ٱ��Ͽ��� ��ǰ ����
 	@RequestMapping(value="/cart2/delete", method = RequestMethod.GET)
 	public String delete(int basketNum) {
 		service.delete(basketNum);
 		return "redirect:/cart2/?basketNum="+basketNum;
 	}
 	
-	//��ٱ��Ͽ��� ����
 	@RequestMapping(value="/cart2/update")
 //	public String update(int quantity, int productNum, HttpSession session, HttpServletRequest req) {
 	public String update(@RequestParam int[] quantity, @RequestParam int[] productNum, HttpSession session, HttpServletRequest req) {

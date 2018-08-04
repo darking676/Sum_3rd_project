@@ -112,7 +112,7 @@ public class ShopController2 {
 	@RequestMapping(value = "/top_detail", method = RequestMethod.GET)
 	public String top_detail(int productNum, Integer curPage, String procd, String searchWord, Model model) {
 
-		File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2");
+		File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2");
 
 		File[] fileList = dir.listFiles();
 
@@ -321,7 +321,7 @@ public class ShopController2 {
 	@RequestMapping(value = "/top_detail2", method = RequestMethod.GET)
 	public String top_detail2(int productNum, Integer curPage, String procd, String searchWord, Model model) {
 
-		File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2");
+		File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2");
 
 		File[] fileList = dir.listFiles();
 
@@ -530,7 +530,7 @@ public class ShopController2 {
 	@RequestMapping(value = "/top_detail3", method = RequestMethod.GET)
 	public String top_detail3(int productNum, Integer curPage, String procd, String searchWord, Model model) {
 
-		File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2");
+		File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2");
 
 		File[] fileList = dir.listFiles();
 

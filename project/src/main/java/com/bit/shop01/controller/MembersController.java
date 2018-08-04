@@ -3,11 +3,14 @@ package com.bit.shop01.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.support.ModelAndViewContainer;
@@ -47,17 +50,26 @@ public class MembersController {
 	// 실패 시 다시 로그인 화면으로 이동
 
 	@RequestMapping(value = "/login/", method = RequestMethod.POST)
-	public String login(String memId, String memPassword, HttpSession session) throws Exception {
-		MemVo loginMem = memService.login(memId, memPassword);
+	public String login(@Valid @ModelAttribute("loginForm") MemVo loginMem, Errors errors, String memId, String memPassword, HttpSession session) throws Exception {
+//	public String login(String memId, String memPassword, HttpSession session) throws Exception {
+		loginMem = memService.login(memId, memPassword);
+//		MemVo loginMem = memService.login(memId, memPassword);
 		System.out.println(memId + memPassword);
-		if(memId.equals("manager")) {
-				session.setAttribute("check", loginMem);
-				return "/info2/manPage";
+		
+		if(errors.hasErrors()) {
+			return "info/login";
+			
+		}else if(memId.equals("manager")) {
+//		if(memId.equals("manager")) {
+			session.setAttribute("check", loginMem);
+			return "info2/manPage";
+			
 		}else if (loginMem != null) {
-					session.setAttribute("check", loginMem);
-					return "/info/logAfter";
+			session.setAttribute("check", loginMem);
+			return "info/logAfter";
+		
 		} else {
-			return "/info/login";
+			return "info/login";
 		}
 	}
 	
@@ -93,7 +105,7 @@ public class MembersController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("check");
 
-		return "/info/login";
+		return "info2/login";
 
 	}
 

@@ -15,13 +15,11 @@ public class CartDaoImpl implements CartMapper {
 	@Autowired
 	SqlSession sqlSession;
 	
-	//��ٱ��� �߰�
 	@Override
 	public int insert(CartVo vo) {
 		return sqlSession.insert("cart.listCart", vo);
 	}
 
-	//��ٱ��� ��ǰ Ȯ��
 	@Override
 //	public int countCart(int productNum, String memId) {
 		public int countCart(HashMap<String, Object> params) {
@@ -32,13 +30,11 @@ public class CartDaoImpl implements CartMapper {
 //		return sqlSession.selectOne("cart.sumPrice", memId);
 	}
 
-	//��ٱ��� ����
 	@Override
 	public int editCart(CartVo vo) {
-		return sqlSession.update("cart.editCart", vo);
+		return sqlSession.update("cart.eidtCart", vo);
 	}
 
-	//��ٱ��� ���
 	@Override
 	public List<CartVo> listCart(String memId) {
 		System.out.println("list cart(dao) : " + memId);
@@ -52,7 +48,6 @@ public class CartDaoImpl implements CartMapper {
 //		return result;
 //	}
 
-	//��ٱ��� �ݾ� �հ�
 	@Override
 	public int sumPrice(String memId) {
 //		sqlSession.selectOne("cart.sumPrice", memId);
@@ -60,16 +55,19 @@ public class CartDaoImpl implements CartMapper {
 		return sqlSession.selectOne("cart.sumPrice", memId);
 	}
 
-	//��ٱ��� ����
 	@Override
 	public void delete(int cartNum) {
 		sqlSession.delete("cart.deleteCart", cartNum);
 	}
 
-	//��ٱ��� ��ǰ ���� ����
 	@Override
 	public int updateCart(CartVo vo) {
 		return sqlSession.update("cart.updateCart", vo);
+	}
+
+	@Override
+	public String cartPro(CartVo vo) {
+		return cartPro(vo);
 	}
 
 

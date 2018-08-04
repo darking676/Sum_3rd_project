@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,10 @@
 
 #naver_id_login {
 	padding-left: 120px;
+}
+
+.color {
+	color: red;
 }
 </style>
 
@@ -28,6 +33,16 @@
 <%@ include file="../template/header.jsp"%>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+// 		$("#loginBtn").click(function() {
+// 			$("loginForm").attr({
+// // 				action="/shop01/login/" method="POST"
+// // 				"method" : "post",
+// 				"action" : "/shop01/login/"
+// 			});
+// 			$("loginForm").submit();
+// 		});
+		
 		$('#login').click(function() {
 			var memId = $("#memId").val();
 			var memPassword = $("#memPassword").val();
@@ -38,11 +53,21 @@
 				return false;
 			}
 			
-			if(memPassword == "") {
+			else if(memPassword == "") {
 				alert("비밀번호를 입력하세요");
 				$("#memPassword").focus();
 				return false;
 			}
+			
+// 			else if() {
+// 				alert();
+// 				return false;
+// 			}
+			
+// 			else if() {
+// 				alert();
+// 				return false;
+// // 			}
 			
 			document.login.action = "/shop01/login";
 			document.login.submit();
@@ -52,10 +77,12 @@
 </script>
 </head>
 <body>
+	<!-- Join 후 Login -->
 	<%@ include file="../template/header2.jsp"%>
 
 	<div class="location01">
-		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST"
+<%-- 		<form:form commandName="loginForm" class="form-horizontal">  --%>
+ 		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST" 
 			onsubmit="return login()">
 			<fieldset>
 				<div id="legend">
@@ -67,8 +94,8 @@
 					<div class="controls">
 
 						<input type="text" id="memId" name="memId" placeholder=""
-							class="input-xlarge" style="text-align: Left; width: 288px;" />
-						<br /> <br />
+							class="input-xlarge" style="text-align: Left; width: 288px;" /><br/>
+							<form:errors path="memId" class="color" /><br/>
 					</div>
 				</div>
 				<div class="control-group">
@@ -77,7 +104,8 @@
 					<div class="controls">
 						<input type="password" id="memPassword" name="memPassword"
 							placeholder="" class="input-xlarge"
-							style="text-align: Left; width: 288px;" /> <br /> <br /> <br />
+							style="text-align: Left; width: 288px;" /> <br/>
+							<form:errors path="memPassword" class="color"/><br/><br/>
 					</div>
 				</div>
 				<div class="control-group">

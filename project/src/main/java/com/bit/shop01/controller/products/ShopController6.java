@@ -120,7 +120,7 @@ public class ShopController6 {
 	    public String shoeacc_detail(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
@@ -352,7 +352,7 @@ public class ShopController6 {
 	    public String shoeacc_detail2(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
@@ -581,7 +581,7 @@ public class ShopController6 {
 	    public String shoeacc_detail3(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK5\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
