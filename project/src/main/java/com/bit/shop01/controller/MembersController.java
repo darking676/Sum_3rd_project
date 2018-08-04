@@ -89,7 +89,7 @@ public class MembersController {
 
 		MemVo memVo = new MemVo();
 		memVo.setMemId(memId);
-		memVo.setMemPassword(memPassword);
+		memVo.setMemPassword(memPassword); 
 		memVo.setEmail(email);
 		memVo.setAddress(address);
 		memVo.setHp(hp);
