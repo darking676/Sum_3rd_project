@@ -1,9 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <nav class="navbar navbar-info">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/shop01/"> <!--       <p style="font-size: 23">CIELO</p> -->
 				<img height="280%" alt="..." src="../resources/imgs/cielo.jpg" />
-
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".al").click(function() {
+		alert("로그인이 필요합니다");
+	});
+});
+</script>
 			</a>
 		</div>
 		<div id="mymy">
@@ -11,8 +20,8 @@
 				<br />
 				<li><a href="/shop01/login/">Login</a></li>
 				<li><a href="/shop01/join/">Join</a></li>
-				<li><a href="/shop01/login2/">MyPage</a></li>
-				<li><a href="/shop01/login2/">Cart</a></li>
+				<li><a class="al" href="/shop01/login/">MyPage</a></li>
+				<li><a class="al" href="/shop01/login/">Cart</a></li>
 			</ul>
 		</div>
 	</div>

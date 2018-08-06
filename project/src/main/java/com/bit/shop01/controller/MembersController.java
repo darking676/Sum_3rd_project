@@ -37,7 +37,7 @@ public class MembersController {
 	
 	
 	// 로그인 페이지로 이동
-	@RequestMapping(value = "/login2/", method = RequestMethod.GET)
+	@RequestMapping(value = "/login2/")//, method = RequestMethod.GET)
 	public String login2() {
 
 		return "/info/login2";
@@ -105,7 +105,7 @@ public class MembersController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("check");
 
-		return "info2/login";
+		return "redirect:../login/";
 
 	}
 
@@ -123,7 +123,7 @@ public class MembersController {
 
 		System.out.println(memVo);
 		memService.insert(memVo);
-		return "/info/welcome";
+		return "redirect:../login/";
 
 	}
 

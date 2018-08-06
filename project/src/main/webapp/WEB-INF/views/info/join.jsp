@@ -103,10 +103,11 @@ $(document).ready(function() {
 			$("#hp").focus();
 			return false;
 		}
-
 		
-		document.join1.action = "/shop01/join";
-		document.join1.submit();
+		alert("회원가입 하였습니다\n환영합니다");
+		
+		document.join.action = "/shop01/join";
+		document.join.submit();
 		
 	});
 	 

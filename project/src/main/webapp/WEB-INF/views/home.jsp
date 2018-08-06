@@ -115,8 +115,13 @@ body {
 	font-size: 18px;
 }
 </style>
-
-
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".al").click(function() {
+		alert("로그인이 필요합니다");
+	});
+});
+</script>
 </head>
 <nav class="navbar navbar-info">
 	<div class="container-fluid">
@@ -130,8 +135,8 @@ body {
 			<br />
 			<li><a href="/shop01/login/">Login</a></li>
 			<li><a href="/shop01/join/">Join</a></li>
-			<li><a href="/shop01/login/">MyPage</a></li>
-			<li><a href="/shop01/login/">Cart</a></li>
+			<li><a class="al" href="/shop01/login/">MyPage</a></li>
+			<li><a class="al" href="/shop01/login/">Cart</a></li>
 		</ul>
 	</div>
 </nav>

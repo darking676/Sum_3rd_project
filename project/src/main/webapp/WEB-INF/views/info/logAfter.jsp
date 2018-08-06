@@ -129,8 +129,8 @@ body {
 		<ul class="nav navbar-nav navbar-right" style="font-size: 18;">
 			<br />
 			<li><a>${check.memId}</a></li>
-			<li><a href="/shop01/">Logout</a></li>
-			<li><a href="/shop01/mypage/">MyPage</a></li>
+			<li><a href="/shop01/login/">Logout</a></li>
+			<li><a href="/shop01/changePasswd/">MyPage</a></li>
 			<li><a href="/shop01/cart/">Cart</a></li>
 		</ul>
 	</div>

@@ -18,13 +18,23 @@
 
 
 	<update id="modify" parameterType="memVo">
-		UPDATE members SET email = #{email}, address = #{address}, hp = #{hp}
-		WHERE memId = #{memId} AND memPassword = #{memPassword}
+		UPDATE 
+			members 
+		SET 
+			email = #{email}, address = #{address}, hp = #{hp}
+		WHERE 
+			memId = #{memId} 
+			AND 
+				memPassword = #{memPassword}
 	</update>
 
 	<update id="changePasswd" parameterType="memVo">
-		UPDATE members SET memPassword = #{memPassword} , email = #{email}, address
-		= #{address}, hp = #{hp} WHERE memId = #{memId}
+		UPDATE 
+			members 
+		SET 
+			memPassword = #{memPassword} , email = #{email}, address= #{address}, hp = #{hp} 
+		WHERE 
+			memId = #{memId}
 	</update>
 
 	<!-- , email = #{email}, address = #{address}, hp = #{hp} -->

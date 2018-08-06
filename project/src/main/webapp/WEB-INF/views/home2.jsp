@@ -132,7 +132,7 @@ body {
 			<!--     onclick="location.href='/shop01/info/logout'" -->
 			<li><a>${check.memId}</a></li>
 			<li><a href="/shop01/logout/">Logout</a></li>
-			<li><a href="/shop01/mypage/">MyPage</a></li>
+			<li><a href="/shop01/changePasswd/">MyPage</a></li>
 			<li><a href="/shop01/cart2/">Cart</a></li>
 		</ul>
 	</div>

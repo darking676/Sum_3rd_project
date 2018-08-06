@@ -37,7 +37,7 @@
 // 		$("#login").click(function() {
 // 			$("loginForm").attr({
 // // 				action="/shop01/login/" method="POST"
-// // 				"method" : "post",
+//  			"method" : "post",
 // 				"action" : "/shop01/login/"
 // 			});
 // 			$("loginForm").submit();
@@ -73,8 +73,7 @@
 
 	<div class="location01">
 <%-- 		<form:form commandName="loginForm" class="form-horizontal"> --%>
-		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST"
-			onsubmit="return login()">
+		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST" onsubmit="return login()">
 			<h2>로그인을 해주세요</h2>
 			<fieldset>
 				<div id="legend">

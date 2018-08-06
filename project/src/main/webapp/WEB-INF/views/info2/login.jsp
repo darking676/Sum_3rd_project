@@ -34,45 +34,45 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-// 		$("#loginBtn").click(function() {
-// 			$("loginForm").attr({
-// // 				action="/shop01/login/" method="POST"
-// // 				"method" : "post",
-// 				"action" : "/shop01/login/"
-// 			});
-// 			$("loginForm").submit();
-// 		});
+		$("#login").click(function() {
+			$("loginForm").attr({
+// 				action="/shop01/login/" method="POST"
+				"method" : "post",
+				"action" : "/shop01/login/"
+			});
+			$("loginForm").submit();
+		});
 		
-		$('#login').click(function() {
-			var memId = $("#memId").val();
-			var memPassword = $("#memPassword").val();
+// 		$('#login').click(function() {
+// 			var memId = $("#memId").val();
+// 			var memPassword = $("#memPassword").val();
 			
-			if(memId == "") {
-				alert("아이디를 입력하세요");
-				$("#memId").focus();
-				return false;
-			}
-			
-			else if(memPassword == "") {
-				alert("비밀번호를 입력하세요");
-				$("#memPassword").focus();
-				return false;
-			}
-			
-// 			else if() {
-// 				alert();
+// 			if(memId == "") {
+// 				alert("아이디를 입력하세요");
+// 				$("#memId").focus();
 // 				return false;
 // 			}
 			
-// 			else if() {
-// 				alert();
+// 			else if(memPassword == "") {
+// 				alert("비밀번호를 입력하세요");
+// 				$("#memPassword").focus();
 // 				return false;
+// 			}
+			
+// // 			else if() {
+// // 				alert();
+// // 				return false;
 // // 			}
 			
-			document.login.action = "/shop01/login";
-			document.login.submit();
+// // 			else if() {
+// // 				alert();
+// // 				return false;
+// // // 			}
 			
-		});
+// 			document.login.action = "/shop01/login";
+// 			document.login.submit();
+			
+// 		});
 	});
 </script>
 </head>
@@ -81,9 +81,8 @@
 	<%@ include file="../template/header2.jsp"%>
 
 	<div class="location01">
-<%-- 		<form:form commandName="loginForm" class="form-horizontal">  --%>
- 		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST" 
-			onsubmit="return login()">
+		<form:form commandName="loginForm" class="form-horizontal"> 
+ 		<form id="loginForm" class="form-horizontal" action="/shop01/login/" method="POST" onsubmit="return login()">
 			<fieldset>
 				<div id="legend">
 					<legend class="">LOGIN</legend>
@@ -117,7 +116,8 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
+<%-- 		</form> --%>
+		</form:form>
 		<button class="btn btn-info btn-sm active" style="width: 288px"
 			type="button" onclick="location.href='/shop01/join/'">JOIN</button>
 	</div>

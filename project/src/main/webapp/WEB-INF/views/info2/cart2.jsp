@@ -57,7 +57,7 @@ body {
 <%@ include file="../template2/header2.jsp"%>
 	<h2>장바구니</h2> 
 	<c:choose>
-		<c:when test="${map.count < 0 }">
+		<c:when test="${map.count <= 0 }">
 			<p>장바구니가 비었습니다.</p>
 		</c:when>
 		<c:otherwise>
