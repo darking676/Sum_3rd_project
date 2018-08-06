@@ -94,7 +94,7 @@ public class MembersController {
 		memVo.setAddress(address);
 		memVo.setHp(hp);
 
-		memService.changePasswd(memVo);
+		memService.changePasswd(memVo); 
 
 		return "/info/changePasswdConfirm";
 	}
