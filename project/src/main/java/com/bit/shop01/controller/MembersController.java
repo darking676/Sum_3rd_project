@@ -98,7 +98,7 @@ public class MembersController {
 
 		return "/info/changePasswdConfirm";
 	}
-
+ 
 	// 로그아웃 후 로그인 화면으로 이동
 
 	@RequestMapping(value = "/logout/", method = RequestMethod.GET)
