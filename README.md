@@ -1,6 +1,6 @@
 # Sum_3rd_project
 
-#회원
+# 회원
 CREATE TABLE members (
 	memId         VARCHAR2(30)  primary key,     
 	memName       VARCHAR2(30)  NOT NULL,   
@@ -26,7 +26,7 @@ CREATE UNIQUE INDEX PK_members
 
 
 
-#상품
+# 상품
 
 create table products (<br/>
     procd varchar2(60),<br/>
@@ -43,7 +43,7 @@ INSERT INTO products VALUES ('sale','세일품목');
 
 
 
-#상품 내용
+# 상품 내용
 CREATE TABLE product(<br/>
 	productNum   NUMBER,<br/>    
 	productName  VARCHAR2(60),<br/>
@@ -58,7 +58,7 @@ CREATE TABLE product(<br/>
 
 
 
-#color
+# color
 create table colorsd (<br/>
 	colors varchar2(30) primary key,<br/>
 	colorname varchar2(30),<br/>
@@ -73,7 +73,7 @@ insert into colorsd values ('WHITE', 1);
 
 
 
-#size
+# size
 create table sizesize (<br/>
     sizename varchar2(30) not null,<br/>
     sizecd varchar2(30),<br/>
@@ -101,7 +101,7 @@ insert into sizesize values(270, 'num_size', 270);
 
 
 
-#장바구니
+# 장바구니
 CREATE TABLE basket (<br/>
       basketNum   NUMBER,  <br/>         
       memId       VARCHAR2(30),  <br/>     
@@ -120,7 +120,7 @@ create sequence SEQ_basket start with 1 increment by 1;
 
 
 
-#결제
+# 결제
 CREATE TABLE payment(<br/>
 	paymentNum          INT          primary key, <br/>
 	memId               VARCHAR2(30)  NOT NULL,    <br/> 
@@ -142,7 +142,7 @@ CREATE UNIQUE INDEX PK_payment<br/>
 
 
 
-#게시판 종류
+# 게시판 종류
 CREATE TABLE shop_bbs(<br/>
     bbscd varchar2(60),<br/>
     bbsnm varchar2(60) NOT NULL,<br/>
@@ -150,7 +150,7 @@ CREATE TABLE shop_bbs(<br/>
 );
  
 
-#게시글
+# 게시글
 CREATE TABLE bbsedit (<br/>
     bbseditno NUMBER,<br/>
     bbscd varchar2(20),<br/>
@@ -184,7 +184,7 @@ insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test3', 'it', 'user3'
 
 
 
-#첨부파일 
+# 첨부파일 
 create table attachfile (<br/>
  attachfileno number,<br/>
  filename varchar2(50) NOT NULL,<br/>
@@ -201,7 +201,7 @@ increment by 1<br/>
 start with 1;<br/>
 
 
-#댓글
+# 댓글
 create table comments (<br/>
 	commentno          number,<br/>
 	bbseditno          number,    <br/> 
@@ -217,7 +217,7 @@ create sequence SEQ_COMMENTS<br/>
 increment by 1<br/>
 start with 1;
 
-#상품 타입
+# 상품 타입
 
 outer = T01<br/>
 bottom  = T02<br/>
@@ -226,7 +226,7 @@ shoes&acc  = T04<br/>
 sale   = T05
 
 
-#상품 번호
+# 상품 번호
 
 outer = 1~100<br/>
 bottom  = 101~200<br/>
